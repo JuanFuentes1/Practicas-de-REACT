@@ -1,29 +1,22 @@
 import React from "react"
-import { netIncomes } from "./App"
 import Table from "react-bootstrap/Table"
+import Proptypes from "prop-types"
 
-const Tablee = () => {
+
+const Tablee = ({brand, income}) => {
     return (
-        <div>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Ing. brutos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {netIncomes.map((company) => (
-                        <tr key={company.id}>
-                            <td>{company.brand}</td>
-                            <td>{company.income}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-        </div>
+        <>
+            <tr>
+                <td>{brand}</td>
+                <td>{income}</td>
+            </tr>
+        </>
     )
 }
 
-
 export default Tablee
+
+Tablee.Proptypes = {
+    brand: Proptypes.string,
+    income: Proptypes.number
+}
