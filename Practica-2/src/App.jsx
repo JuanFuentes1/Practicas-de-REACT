@@ -12,7 +12,8 @@ function App() {
   ];
 
   const incomes = netIncomes.map((inc) => (inc.income))
-  const averageIncomes = incomes.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+  const accumIncomes = incomes.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+  const averageIncomes = accumIncomes/incomes.length
 
   return (
     <div className='container'>
@@ -33,7 +34,7 @@ function App() {
         ))}
         </tbody>
       </Table>
-      <p>El promedio de ingresos brutos es de {(averageIncomes / incomes.length).toFixed(2)}</p>
+      <p>El promedio de ingresos brutos es de {averageIncomes.toFixed(2)}</p>
     </div>
   )
 }
